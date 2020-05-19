@@ -1,0 +1,51 @@
+@import "@/common/color.less";
+#home {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 100vw;
+  height: 100vh;
+  .content {
+    font-weight: 100;
+    margin-left: 10%;
+    .contact {
+      margin-top: 40px;
+      padding: 8px 20px;
+      display: inline-block;
+      border: 0.5px solid @whiteColor4;
+      color: @whiteColor;
+      font-weight: 100;
+      transition: 0.5s all;
+      border-radius: 3px;
+      .iconcontact {
+        color: @whiteColor;
+      }
+      &:hover {
+        cursor: pointer;
+        background-color: @whiteColor2;
+      }
+    }
+    .content-text {
+      color: @whiteColor6;
+      transition: 0.5s all;
+      display: block;
+      &:hover {
+        color: @whiteColor;
+      }
+    }
+    .header-text {
+      @media (max-width: 992px) {
+        font-size: 2rem;
+      }
+      font-size: 4rem;
+    }
+    .sub-text {
+      @media (max-width: 992px) {
+        font-size: 1rem;
+      }
+      margin-top: 20px;
+      font-size: 2rem;
+      font-weight: 100;
+    }
+  }
+}

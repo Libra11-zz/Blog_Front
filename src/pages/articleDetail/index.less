@@ -1,0 +1,107 @@
+@import "@/common/color.less";
+@keyframes rotate{
+  0%{transform:rotate(0deg);}
+  25%{transform:rotate(90deg);}
+  50%{transform:rotate(180deg);}
+  75%{transform:rotate(270deg);}
+  100%{transform:rotate(360deg);}
+}
+#article {
+  position: absolute;
+  width: 100%;
+  top: 80px;
+  .article-content {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    flex-direction: row;
+    max-width: 1284px;
+    margin: 0 auto;
+    @media (min-width: 992px) {
+      padding: 0px 20px;
+      margin-top: 30px;
+    }
+    .left{
+      flex: 1;
+      position: relative;
+      @media (max-width: 992px) {
+        width: 100%;
+      }
+      padding: 0px 10px;
+      margin: 0 auto;
+      max-width: 1284px;
+      .image{
+        border-radius: 5px;
+        overflow: hidden;
+        @media (min-width: 992px) {
+          height: 400px;
+        }
+      }
+      .title{
+        display: block;
+        color: @textColor;
+        font-size: 3rem;
+        font-weight: bold;
+        // font-style: italic;
+        text-align: left;
+        @media (max-width: 992px) {
+          font-size: 2rem;
+        }
+      }
+      .label{
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        margin: 20px 0;
+        color: @textColor;
+        font-style: italic;
+        font-size: 1rem;
+        li{
+          padding: 0 10px 0 0;
+        }
+        .iconfont{
+          font-size: 1.1rem;
+        }
+      }
+      .detail{
+        margin-bottom: 80px;
+      }
+    }
+    .right {
+      @media (max-width: 992px) {
+        display: none;
+      }
+      display: flex;
+      flex-direction: column;
+      margin-left: 80px;
+      align-items: flex-start;
+      .list{
+        background-color: @backgroundColor6;
+        padding: 20px 20px 20px 20px;
+        width: 300px;
+        margin-top: 60px;
+        border-radius: 0 0 20px 20px;
+        box-shadow: 0 2px 12px 0 @blackColor;
+        .catalog-list{
+          transition: 0.5s all;
+          padding: 2px 0;
+          &:hover{
+            // background-color: grey;
+            font-size: 1.5rem;
+          }
+        }
+        li{
+          a{
+            code{
+              color: @whiteColor;
+            }
+          }
+        }
+      }
+      .list[data-fixed="fixed"]{
+        position: fixed;
+        top: 0;
+      }
+    }
+  }
+}
