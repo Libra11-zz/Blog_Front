@@ -13,9 +13,8 @@
         </span>
         <span class="verticle-line white">|</span>
         <span class="link">
-          <span id="busuanzi_container_site_uv">
-            <span id="busuanzi_value_site_uv"></span>&nbsp;访问
-          </span>
+          {{categoryCount}}
+          <i class="white">&nbsp;分类</i>
         </span>
       </div>
       <div class="more">更多</div>
@@ -28,24 +27,35 @@ import axios from "@/utils/axios";
 export default {
   data() {
     return {
-      totalCount: 0
+      totalCount: 0,
+      categoryCount: 0
     };
   },
   mounted() {
     this.getBlogsCount();
+    this.getAllCategory();
   },
   methods: {
     getBlogsCount() {
       const _this = this;
-      console.log(_this);
       axios
         .get("/api/blogs/getAllBlogsCount")
         .then(function(response) {
-          console.log(_this.totalCount);
           _this.totalCount = response.data.total || 0;
         })
         .catch(function(error) {
           console.log(_this);
+          console.log(error);
+        });
+    },
+    getAllCategory() {
+      const _this = this;
+      axios
+        .get("/api/blogs/getAllCategory")
+        .then(function(response) {
+          _this.categoryCount = response.data.data.length || 0;
+        })
+        .catch(function(error) {
           console.log(error);
         });
     }

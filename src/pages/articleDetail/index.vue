@@ -1,5 +1,6 @@
 <template>
   <div id="article">
+    <my-header></my-header>
     <div class="article-content">
       <div class="left">
         <span class="title animated rollIn">{{title}}</span>
@@ -8,14 +9,6 @@
             <i class="iconfont iconshizhong"></i>
             {{timeTransfrom(pubTime)}}
           </li>
-          <li class="date">
-            <i class="iconfont iconread"></i>
-            <span id="busuanzi_value_page_pv"></span>
-          </li>
-          <!-- <span id="busuanzi_container_page_pv">
-            本文总阅读量
-            <span id="busuanzi_value_page_pv"></span>次
-          </span>-->
           <li class="update">
             <i class="iconfont iconUpdate"></i>
             {{timeTransfrom(upTime)}}
@@ -48,6 +41,7 @@
         </ul>
       </div>
     </div>
+    <my-footer></my-footer>
   </div>
 </template>
 
@@ -59,6 +53,8 @@ import CategoryCard from "@/components/CategoryCard";
 import InfoCard from "@/components/InfoCard";
 import { transformTime } from "@/utils/index";
 import hljs from "highlight.js";
+import MyHeader from "@/components/Header";
+import MyFooter from "@/components/Footer";
 export default {
   layout: "other",
   data() {
@@ -160,7 +156,9 @@ export default {
   components: {
     Comments,
     InfoCard,
-    CategoryCard
+    CategoryCard,
+    MyHeader,
+    MyFooter
   }
 };
 </script>

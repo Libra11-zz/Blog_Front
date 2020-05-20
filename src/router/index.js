@@ -1,8 +1,6 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 
-import Login from '@/pages/admin/login/index.vue'
-
 import Home from '@/pages/home/index.vue'
 import Blog from '@/pages/blog/index.vue'
 import articleDetail from '@/pages/articleDetail/index.vue'
@@ -13,10 +11,6 @@ export default new Router({
   routes: [{
     path: '/',
     component: Home
-  }, {
-    path: '/login',
-    name: 'login',
-    component: Login
   }, {
     path: '/home',
     name: 'home',

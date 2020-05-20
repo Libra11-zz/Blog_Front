@@ -112,7 +112,6 @@ export default {
     },
     comment() {
       let replyer = this.replyer;
-      console.log(replyer);
       if (this.isOtherReply) {
         this.otherReply(replyer);
         this.isOtherReply = false;
@@ -122,7 +121,6 @@ export default {
       } else {
         this.publishComment(replyer);
       }
-      this.getComments(this.articleId);
     },
     reply(replyer, id) {
       this.isOtherReply = true;
@@ -149,6 +147,7 @@ export default {
         })
         .then(function(response) {
           _this.content = "";
+          _this.getComments(_this.articleId);
           console.log("评论成功");
           console.log(response);
         })
@@ -191,6 +190,7 @@ export default {
         .then(function(response) {
           _this.content = "";
           console.log("回复成功");
+          _this.getComments(_this.articleId);
           console.log(response);
         })
         .catch(function(error) {
