@@ -34,18 +34,20 @@
       .left {
         flex: 1;
         position: relative;
-        @media (max-width: 992px) {
-          border-radius: 10px;
-          overflow: hidden;
+        .picLink{
+          .picture {
+            @media (max-width: 992px) {
+              border-radius:5px;
+              overflow: hidden;
+            }
+            width: 100%;
+            display: block;
+            position: relative;
+            @media (min-width: 992px) {
+              border-radius: 0 0 20px 20px;
+            }
+            box-shadow: 0 2px 12px 0 @blackColor;
         }
-        .picture {
-          width: 100%;
-          display: block;
-          position: relative;
-          @media (min-width: 992px) {
-            border-radius: 0 0 20px 20px;
-          }
-          box-shadow: 0 2px 12px 0 @blackColor;
         }
         .mobile-detail {
           @media (min-width: 992px) {

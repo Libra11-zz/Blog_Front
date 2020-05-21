@@ -3,6 +3,15 @@
     <my-header></my-header>
     <div class="label-content">
       <div class="left">
+        <div class="mobile-classify">
+          <mobile-label
+            v-for="(item, index) in categorys"
+            :key="index"
+            :url="`/label/${item}`"
+            :icon="`${icon[item]}`"
+            :title="item"
+          />
+        </div>
         <div class="recently-blog-mobile">
           <span class="recently-title">最近</span>
           <mobile-blog-item
@@ -54,12 +63,19 @@ import axios from "@/utils/axios";
 import { transformTime } from "@/utils/index";
 import MobileBlogItem from "@/components/MobileBlogItem";
 import Pagination from "@/components/Pagination";
+import MobileLabel from "@/components/MobileLabel";
 export default {
   props: ["category"],
   data() {
     return {
       Blogs: [],
-      total: 0
+      total: 0,
+      categorys: [],
+      icon: {
+        test: "icontest",
+        Flutter: "iconFlutter",
+        Git: "icongit"
+      }
     };
   },
   watch: {
@@ -69,6 +85,7 @@ export default {
   },
   created() {
     this.getBlogsByCategory();
+    this.getAllCategory();
   },
   methods: {
     getBlogsByCategory(pageNum) {
@@ -89,6 +106,17 @@ export default {
           console.log(error);
         });
     },
+    getAllCategory() {
+      const _this = this;
+      axios
+        .get("/api/blogs/getAllCategory")
+        .then(function(response) {
+          _this.categorys = response.data.data || [];
+        })
+        .catch(function(error) {
+          console.log(error);
+        });
+    },
     timeTransfrom(time) {
       return transformTime(time);
     }
@@ -100,7 +128,8 @@ export default {
     InfoCard,
     BlogItem,
     MobileBlogItem,
-    Pagination
+    Pagination,
+    MobileLabel
   }
 };
 </script>

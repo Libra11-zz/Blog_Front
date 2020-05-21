@@ -15,7 +15,7 @@
           <mobile-label url="/searchDetail" icon="icondatabase" title="Database" />-->
         </div>
         <div class="left">
-          <router-link :to="`/articleDetail/${firstBlog._id}`">
+          <router-link :to="`/articleDetail/${firstBlog._id}`" class="picLink">
             <img :src="firstBlog.headerPic" alt class="picture" />
           </router-link>
           <div class="detail animated slow bounceInLeft">

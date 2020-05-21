@@ -50,9 +50,8 @@
             </span>
             <span class="verticle-line white">|</span>
             <span class="link">
-              <span id="busuanzi_container_site_pv">
-                <span id="busuanzi_value_site_pv"></span>访问
-              </span>
+              {{categoryCount}}
+              <i class="white">&nbsp;分类</i>
             </span>
           </div>
         </div>
@@ -100,11 +99,13 @@ export default {
   data() {
     return {
       showNav: false,
-      totalCount: 0
+      totalCount: 0,
+      categoryCount: 0
     };
   },
   created() {
     this.getBlogsCount();
+    this.getAllCategory();
   },
   methods: {
     handleMobileNav() {
@@ -116,6 +117,17 @@ export default {
         .get("/api/blogs/getAllBlogsCount")
         .then(function(response) {
           _this.totalCount = response.data.total || 0;
+        })
+        .catch(function(error) {
+          console.log(error);
+        });
+    },
+    getAllCategory() {
+      const _this = this;
+      axios
+        .get("/api/blogs/getAllCategory")
+        .then(function(response) {
+          _this.categoryCount = response.data.data.length || 0;
         })
         .catch(function(error) {
           console.log(error);
