@@ -22,10 +22,10 @@
 
 <script>
 export default {
+  props: ["totalPages", "changePage"],
   data() {
     return {
-      currentPage: 1,
-      totalPages: 50
+      currentPage: 1
     };
   },
   methods: {
@@ -33,6 +33,7 @@ export default {
       if (n === this.currentPage) return;
       if (typeof n === "string") return;
       this.currentPage = n;
+      this.changePage(n);
     },
     prevOrNext(n) {
       this.currentPage += n;
@@ -41,12 +42,16 @@ export default {
         : this.currentPage > this.totalPages
         ? (this.currentPage = this.totalPages)
         : null;
+      this.changePage(this.currentPage);
     }
   },
   computed: {
     pages() {
       const c = this.currentPage;
       const t = this.totalPages;
+      if (t <= 10) {
+        return Array.from({ length: t }, (v, k) => k + 1);
+      }
       if (c <= 5) {
         return [1, 2, 3, 4, 5, 6, 7, 8, 9, "...", t];
       } else if (c >= t - 4) {

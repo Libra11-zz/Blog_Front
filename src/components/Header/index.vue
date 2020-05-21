@@ -11,7 +11,7 @@
         <router-link to="/blog" class="link">博客</router-link>
       </li>
       <li class="menu-item">
-        <router-link to="/label" class="link">标签</router-link>
+        <router-link to="/label/test" class="link">标签</router-link>
       </li>
       <li class="menu-item">
         <router-link to="/timeline" class="link">时间线</router-link>
@@ -71,7 +71,7 @@
             </router-link>
           </li>
           <li class="nav-menu-item" @click="handleMobileNav">
-            <router-link to="/label">
+            <router-link to="/label/test">
               <i class="iconfont iconlabel"></i>
               <i class="white">标签</i>
             </router-link>

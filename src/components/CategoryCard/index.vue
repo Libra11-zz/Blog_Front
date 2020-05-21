@@ -2,24 +2,47 @@
   <div class="test animated bounceInRight">
     <span class="labeltitle">分类</span>
     <div class="label-container">
-      <Label url="/searchDetail" icon="iconblockchain" text="Blockchain" />
-      <Label url="/searchDetail" icon="icongo" text="Go" />
-      <Label url="/searchDetail" icon="iconFlutter" text="Flutter" />
-      <Label url="/searchDetail" icon="iconjava-script" text="JavaScript" />
-      <Label url="/searchDetail" icon="iconReact" text="React" />
-      <Label url="/searchDetail" icon="iconVue" text="Vue" />
-      <Label url="/searchDetail" icon="iconnodejs" text="Node" />
-      <Label url="/searchDetail" icon="iconcss" text="Css" />
-      <!-- <Label icon="iconandroid" text="Android" />
-      <Label icon="iconios" text="IOS" />-->
-      <Label url="/search-detail" icon="icondatabase" text="Database" />
+      <Label
+        v-for="(item, index) in categorys"
+        :key="index"
+        :url="`/label/${item}`"
+        :icon="`${icon[item]}`"
+        :text="item"
+      />
     </div>
   </div>
 </template>
 
 <script>
 import Label from "../Label";
+import axios from "@/utils/axios";
 export default {
+  data() {
+    return {
+      categorys: [],
+      icon: {
+        test: "icontest",
+        Flutter: "iconFlutter",
+        Git: "icongit"
+      }
+    };
+  },
+  created() {
+    this.getAllCategory();
+  },
+  methods: {
+    getAllCategory() {
+      const _this = this;
+      axios
+        .get("/api/blogs/getAllCategory")
+        .then(function(response) {
+          _this.categorys = response.data.data || [];
+        })
+        .catch(function(error) {
+          console.log(error);
+        });
+    }
+  },
   components: {
     Label
   }

@@ -1,8 +1,8 @@
 <template>
-  <nuxt-link class="container" :to="url">
+  <router-link class="container" :to="url">
     <i :class="icon" class="iconfont"></i>
     {{text}}
-  </nuxt-link>
+  </router-link>
 </template>
 
 <script>

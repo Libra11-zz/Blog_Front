@@ -3,6 +3,7 @@ import Router from 'vue-router'
 
 import Home from '@/pages/home/index.vue'
 import Blog from '@/pages/blog/index.vue'
+import Label from '@/pages/label/index.vue'
 import articleDetail from '@/pages/articleDetail/index.vue'
 Vue.use(Router)
 export default new Router({
@@ -23,6 +24,11 @@ export default new Router({
     path: '/articleDetail/:id',
     name: 'articleDetail',
     component: articleDetail
+  }, {
+    path: '/label/:category',
+    name: 'label',
+    component: Label,
+    props: true
   }],
   scrollBehavior() {
     return { x: 0, y: 0 }

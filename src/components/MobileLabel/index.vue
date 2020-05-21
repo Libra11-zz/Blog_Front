@@ -1,8 +1,8 @@
 <template>
-  <nuxt-link :to="url" class="mobile-label">
+  <router-link :to="url" class="mobile-label">
     <i class="iconfont" :class="icon"></i>
     <span class="title">{{title}}</span>
-  </nuxt-link>
+  </router-link>
 </template>
 
 <script>

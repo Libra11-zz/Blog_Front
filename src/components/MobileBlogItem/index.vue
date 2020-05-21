@@ -1,9 +1,9 @@
 <template>
   <div @click="go(id)" class="mobile-blog-item">
-    <div class="left">
+    <div class="item-left">
       <img :src="source" alt width="80px" height="80px" />
     </div>
-    <div class="right">
+    <div class="item-right">
       <div class="title">{{title}}</div>
       <div class="content">{{content}}</div>
       <div class="bottom">
