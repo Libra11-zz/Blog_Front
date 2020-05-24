@@ -1,0 +1,46 @@
+.cardcontainer{
+  .card{
+    width: 50%;
+    display: flex;
+    .cardcontent{
+      background: #ffffff;
+      color: black;
+      padding: 10px 20px;
+      border-radius: 0.25em;
+      box-shadow: 0 3px 0 #d7e4ed;
+      &:before{
+        content: '';
+        position: absolute;
+        height: 0;
+        width: 0;
+        top: 16px;
+        right: 100%;
+        border: 7px solid transparent;
+        // border-right: 7px solid #ffffff;
+        border-color: transparent;
+        border-right-color: #ffffff;
+      }
+    }
+    .cardimg{
+      width: 60px;
+      height: 60px;
+      left: 50%;
+      margin-left: -30px;
+      background: #75ce66;
+      position: absolute;
+      top: 0;
+      border-radius: 50%;
+      box-shadow: 0 0 0 4px #ffffff, inset 0 2px 0 rgba(0, 0, 0, 0.08), 0 3px 0 4px rgba(0, 0, 0, 0.05);
+      img{
+        display: block;
+        width: 24px;
+        height: 24px;
+        position: relative;
+        left: 50%;
+        top: 50%;
+        margin-left: -12px;
+        margin-top: -12px;
+      }
+    }
+  }
+}

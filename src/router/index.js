@@ -4,6 +4,7 @@ import Router from 'vue-router'
 import Home from '@/pages/home/index.vue'
 import Blog from '@/pages/blog/index.vue'
 import Label from '@/pages/label/index.vue'
+import timeLine from '@/pages/timeLine/index.vue'
 import articleDetail from '@/pages/articleDetail/index.vue'
 Vue.use(Router)
 export default new Router({
@@ -29,6 +30,10 @@ export default new Router({
     name: 'label',
     component: Label,
     props: true
+  }, {
+    path: '/timeLine',
+    name: 'timeLine',
+    component: timeLine,
   }],
   scrollBehavior() {
     return { x: 0, y: 0 }

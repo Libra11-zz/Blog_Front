@@ -1,0 +1,36 @@
+@import "@/common/color.less";
+.timeline{
+	.content{
+		display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    flex-direction: row;
+    max-width: 1284px;
+    margin: 0 auto;
+		.left{
+			width: 904px;
+			@media (max-width: 992px) {
+        padding: 0px 10px;
+      }
+			.timeline-content{
+				.el-card{
+					background-color: @backgroundColor6;
+					color: #fff;
+					border: none;
+					box-shadow: 0 2px 12px 0 #000000;
+					font-weight: 100;
+				}
+			}
+		}
+		.right{
+			@media (max-width: 992px) {
+        display: none;
+      }
+      display: flex;
+      flex-direction: column;
+      margin-left: 80px;
+      justify-content: space-between;
+      align-items: flex-start;
+		}
+	}
+}
