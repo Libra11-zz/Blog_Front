@@ -68,14 +68,12 @@ export default {
       content: "",
       headerPic: "",
       views: 0,
-      commentsLength: 0,
-      totalCount: 0
+      commentsLength: 0
     };
   },
   mounted() {
     this.fixedTop();
     this.getBlogById(this.id);
-    this.getBlogsCount();
     setTimeout(() => {
       this.listAndAnchor();
     }, 1000);
@@ -117,16 +115,6 @@ export default {
           _this.views = data.meta.views;
           _this.commentsLength = data.meta.Comments;
           _this.headerPic = data.headerPic;
-        })
-        .catch(function(error) {
-          console.log(error);
-        });
-    },
-    getBlogsCount() {
-      axios
-        .get("/api/blogs/getAllBlogsCount")
-        .then(function(response) {
-          this.totalCount = response.data.total || 0;
         })
         .catch(function(error) {
           console.log(error);

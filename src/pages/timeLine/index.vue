@@ -16,7 +16,7 @@
               placement="top"
             >
               <el-card>
-                <h4>{{item.title}}</h4>
+                <h4 style="cursor: pointer" @click="goDetail(item._id)">{{item.title}}</h4>
                 <p>{{item.desc}}</p>
               </el-card>
             </el-timeline-item>
@@ -43,29 +43,6 @@ import { transformTime } from "@/utils/index";
 export default {
   data() {
     return {
-      activities: [
-        {
-          content: "支持使用图标",
-          timestamp: "2018-04-12 20:46",
-          size: "large",
-          type: "primary",
-          icon: "el-icon-more"
-        },
-        {
-          content: "支持自定义颜色",
-          timestamp: "2018-04-03 20:46",
-          color: "#0bbd87"
-        },
-        {
-          content: "支持自定义尺寸",
-          timestamp: "2018-04-03 20:46",
-          size: "large"
-        },
-        {
-          content: "默认样式的节点",
-          timestamp: "2018-04-03 20:46"
-        }
-      ],
       blogs: []
     };
   },
@@ -79,7 +56,6 @@ export default {
         .get("/api/blogs/getAllBlog")
         .then(function(response) {
           _this.blogs = response.data.blogs;
-          console.log(response.data.blogs);
         })
         .catch(function(error) {
           console.log(error);
@@ -87,6 +63,11 @@ export default {
     },
     timeTransfrom(time) {
       return transformTime(time);
+    },
+    goDetail(id) {
+      this.$router.push({
+        path: "/articleDetail/" + id
+      });
     }
   },
   components: {

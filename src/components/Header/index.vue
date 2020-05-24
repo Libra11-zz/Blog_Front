@@ -17,7 +17,7 @@
         <router-link to="/timeline" class="link">时间线</router-link>
       </li>
       <li class="menu-item">
-        <router-link to="/others" class="link">其他</router-link>
+        <router-link to="/contact" class="link">联系我</router-link>
       </li>
     </ul>
     <div class="search">
@@ -82,9 +82,9 @@
             </router-link>
           </li>
           <li class="nav-menu-item" @click="handleMobileNav">
-            <router-link to="/others">
+            <router-link to="/contact">
               <i class="iconfont iconother"></i>
-              <i class="white">其他</i>
+              <i class="white">联系我</i>
             </router-link>
           </li>
         </ul>
