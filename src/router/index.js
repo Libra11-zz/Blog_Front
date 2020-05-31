@@ -4,6 +4,7 @@ import Router from 'vue-router'
 import Home from '@/pages/home/index.vue'
 import Blog from '@/pages/blog/index.vue'
 import Label from '@/pages/label/index.vue'
+import category from '@/pages/category/index.vue'
 import timeLine from '@/pages/timeLine/index.vue'
 import contact from '@/pages/contact/index.vue'
 import articleDetail from '@/pages/articleDetail/index.vue'
@@ -27,9 +28,14 @@ export default new Router({
     name: 'articleDetail',
     component: articleDetail
   }, {
-    path: '/label/:category',
+    path: '/label/:label',
     name: 'label',
     component: Label,
+    props: true
+  }, {
+    path: '/category/:category',
+    name: 'category',
+    component: category,
     props: true
   }, {
     path: '/timeLine',

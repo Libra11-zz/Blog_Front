@@ -55,6 +55,7 @@ import { transformTime } from "@/utils/index";
 import hljs from "highlight.js";
 import MyHeader from "@/components/Header";
 import MyFooter from "@/components/Footer";
+import "highlight.js/styles/atom-one-dark.css";
 export default {
   layout: "other",
   data() {

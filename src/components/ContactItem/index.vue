@@ -1,5 +1,7 @@
 <template>
-  <div class="contact-item">ddd</div>
+  <div class="contact-item">
+    <div class="contact-icon"></div>
+  </div>
 </template>
 
 <script>

@@ -5,7 +5,7 @@
       <Label
         v-for="(item, index) in categorys"
         :key="index"
-        :url="`/label/${item}`"
+        :url="`/category/${item}`"
         :icon="`${icon[item]}`"
         :text="item"
       />
