@@ -4,10 +4,10 @@
     <div class="content">
       <span class="content-text header-text animated slow bounceInLeft">Libra</span>
       <span class="content-text sub-text animated slow lightSpeedIn">在生活里，我们永远是初学者</span>
-      <span class="contact">
+      <router-link to="/contact" class="contact">
         <i class="iconfont iconcontact"></i>
         联系我
-      </span>
+      </router-link>
     </div>
     <my-footer></my-footer>
   </div>

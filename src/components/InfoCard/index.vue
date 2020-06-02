@@ -17,7 +17,7 @@
           <i class="white">&nbsp;分类</i>
         </span>
       </div>
-      <div class="more">更多</div>
+      <router-link to="/contact" class="more">联系我</router-link>
     </div>
   </div>
 </template>
