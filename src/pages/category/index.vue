@@ -4,7 +4,7 @@
     <div class="label-content">
       <div class="left">
         <div class="mobile-classify">
-          <mobile-label
+          <mobile-category
             v-for="(item, index) in categorys"
             :key="index"
             :url="`/category/${item}`"
@@ -63,7 +63,7 @@ import axios from "@/utils/axios";
 import { transformTime } from "@/utils/index";
 import MobileBlogItem from "@/components/MobileBlogItem";
 import Pagination from "@/components/Pagination";
-import MobileLabel from "@/components/MobileLabel";
+import MobileCategory from "@/components/MobileCategory";
 export default {
   props: ["category"],
   data() {
@@ -129,7 +129,7 @@ export default {
     BlogItem,
     MobileBlogItem,
     Pagination,
-    MobileLabel
+    MobileCategory
   }
 };
 </script>

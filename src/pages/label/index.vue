@@ -3,17 +3,16 @@
     <my-header></my-header>
     <div class="label-content">
       <div class="left">
-        <div class="mobile-classify">
+        <div class="mobile-classify-label">
           <mobile-label
-            v-for="(item, index) in categorys"
+            v-for="(item, index) in labels"
             :key="index"
             :url="`/label/${item}`"
-            :icon="`${icon[item]}`"
             :title="item"
           />
         </div>
         <div class="recently-blog-mobile">
-          <span class="recently-title">{{category}}</span>
+          <span class="recently-title">{{label}}</span>
           <mobile-blog-item
             v-for="(item, index) in Blogs"
             :key="index"
@@ -27,7 +26,7 @@
           />
         </div>
         <div class="recently-blog">
-          <span class="recently-title">{{category}}</span>
+          <span class="recently-title">{{label}}</span>
           <div class="blog-container">
             <blog-item
               v-for="(item, index) in Blogs"
@@ -44,11 +43,11 @@
         </div>
       </div>
       <div class="right">
-        <category-card />
+        <label-card />
         <info-card />
       </div>
     </div>
-    <pagination :totalPages="Math.ceil(total/8)" :changePage="getBlogsByCategory"></pagination>
+    <pagination :totalPages="Math.ceil(total/8)" :changePage="getBlogsByTag"></pagination>
     <my-footer></my-footer>
   </div>
 </template>
@@ -57,7 +56,7 @@
 import MyHeader from "@/components/Header";
 import MyFooter from "@/components/Footer";
 import BlogItem from "@/components/BlogItem";
-import CategoryCard from "@/components/CategoryCard";
+import LabelCard from "@/components/LabelCard";
 import InfoCard from "@/components/InfoCard";
 import axios from "@/utils/axios";
 import { transformTime } from "@/utils/index";
@@ -65,40 +64,34 @@ import MobileBlogItem from "@/components/MobileBlogItem";
 import Pagination from "@/components/Pagination";
 import MobileLabel from "@/components/MobileLabel";
 export default {
-  props: ["category"],
+  props: ["label"],
   data() {
     return {
       Blogs: [],
       total: 0,
-      categorys: [],
-      icon: {
-        test: "icontest",
-        Flutter: "iconFlutter",
-        Git: "icongit"
-      }
+      labels: []
     };
   },
   watch: {
     $route() {
-      this.getBlogsByCategory();
+      this.getBlogsByTag();
     }
   },
   created() {
-    this.getBlogsByCategory();
-    this.getAllCategory();
+    this.getBlogsByTag();
+    this.getAllTags();
   },
   methods: {
-    getBlogsByCategory(pageNum) {
+    getBlogsByTag(pageNum) {
       const _this = this;
       axios
-        .get("/api/blogs/getBlogsByCategory", {
+        .get("/api/blogs/getBlogsByTag", {
           params: {
-            category: this.category,
+            tag: this.label,
             pageNum: pageNum || 1
           }
         })
         .then(function(response) {
-          console.log(response.data.data);
           _this.Blogs = response.data.data;
           _this.total = response.data.total;
         })
@@ -106,12 +99,12 @@ export default {
           console.log(error);
         });
     },
-    getAllCategory() {
+    getAllTags() {
       const _this = this;
       axios
-        .get("/api/blogs/getAllCategory")
+        .get("/api/remote-search/getAllTags")
         .then(function(response) {
-          _this.categorys = response.data.data || [];
+          _this.labels = response.data.info || [];
         })
         .catch(function(error) {
           console.log(error);
@@ -124,7 +117,7 @@ export default {
   components: {
     MyHeader,
     MyFooter,
-    CategoryCard,
+    LabelCard,
     InfoCard,
     BlogItem,
     MobileBlogItem,

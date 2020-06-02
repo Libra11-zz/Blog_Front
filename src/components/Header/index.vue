@@ -80,7 +80,7 @@
           </li>
           <li class="nav-menu-item" @click="handleMobileNav">
             <router-link to="/category/test">
-              <i class="iconfont iconcategory"></i>
+              <i class="iconfont iconfenlei-"></i>
               <i class="white">分类</i>
             </router-link>
           </li>

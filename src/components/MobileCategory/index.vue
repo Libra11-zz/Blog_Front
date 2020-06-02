@@ -1,12 +1,13 @@
 <template>
-  <router-link :to="url" class="mobile-label">
+  <router-link :to="url" class="mobile-category">
+    <i class="iconfont" :class="icon"></i>
     <span class="title">{{title}}</span>
   </router-link>
 </template>
 
 <script>
 export default {
-  props: ["title", "url"]
+  props: ["icon", "title", "url"]
 };
 </script>
 

@@ -1,14 +1,8 @@
 <template>
   <div class="test animated bounceInRight">
-    <span class="labeltitle">分类</span>
+    <span class="labeltitle">标签</span>
     <div class="label-container">
-      <Label
-        v-for="(item, index) in categorys"
-        :key="index"
-        :url="`/category/${item}`"
-        :icon="`${icon[item]}`"
-        :text="item"
-      />
+      <Label v-for="(item, index) in label" :key="index" :url="`/label/${item}`" :text="item" />
     </div>
   </div>
 </template>
@@ -19,25 +13,20 @@ import axios from "@/utils/axios";
 export default {
   data() {
     return {
-      categorys: [],
-      icon: {
-        test: "icontest",
-        Flutter: "iconFlutter",
-        Git: "icongit",
-        LeetCode: "iconcode"
-      }
+      label: []
     };
   },
   created() {
-    this.getAllCategory();
+    this.getAllTags();
   },
   methods: {
-    getAllCategory() {
+    getAllTags() {
       const _this = this;
       axios
-        .get("/api/blogs/getAllCategory")
+        .get("/api/remote-search/getAllTags")
         .then(function(response) {
-          _this.categorys = response.data.data || [];
+          console.log(response);
+          _this.label = response.data.info || [];
         })
         .catch(function(error) {
           console.log(error);

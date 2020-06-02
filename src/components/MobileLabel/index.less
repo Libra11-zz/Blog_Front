@@ -1,32 +1,19 @@
 @import '@/common/color.less';
 .mobile-label{
-  width: 90px;
-  height: 100px;
   border-radius: 10px;
-  flex: none;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  margin-right: 20px;
+  display: inline-block;
+  margin-top: 10px;
+  line-height: 24px;
+  margin-right: 10px;
   background-color: @blackColor6;
   transition: 0.5s all;
-  box-shadow: 0 2px 6px 0 @blackColor;
   &:hover{
-    box-shadow: 0 2px 24px 0 @blackColor;
-    .iconfont{
-      color: @whiteColor;
-    }
     .title{
       color: @whiteColor;
     }
   }
-  .iconfont{
-    font-size: 3rem;
-    color: @whiteColor6;
-    font-weight: 100;
-  }
   .title{
+    margin: 10px;
     font-size: 1rem;
     color: @whiteColor6;
     font-weight: 100;
