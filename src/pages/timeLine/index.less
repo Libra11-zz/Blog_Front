@@ -12,15 +12,6 @@
 			@media (max-width: 992px) {
         padding: 0px 10px;
       }
-			// .timeline-content{
-			// 	.el-card{
-			// 		background-color: @backgroundColor6;
-			// 		color: #fff;
-			// 		border: none;
-			// 		box-shadow: 0 2px 12px 0 #000000;
-			// 		font-weight: 100;
-			// 	}
-			// }
 			
 			/*===== Vertical Timeline =====*/
 			#conference-timeline {
@@ -44,8 +35,49 @@
 				height: 100%;
 				position: relative;
 				overflow: hidden;
-				margin: 20px 0;
+				margin: 10px 0;
 				cursor: pointer;
+				.timeline-container{
+					display: flex;
+					// align-items: center;
+					.card-left{
+							.index{
+								font-size: 30px;
+								margin-right: 20px;
+							}
+					}
+					.card-right{
+						width: 100%;
+						.title{
+							font-size: 18px;
+						}
+						.desc{
+							font-weight: 100;
+							margin-top: 10px;
+							font-size: 14px;
+							padding-left:20px;
+							font-style: italic;
+						}
+						.date{
+							display: flex;
+							justify-content: flex-end;
+							align-items: center;
+							margin-top: 10px;
+							.iconfont{
+								vertical-align: middle;
+								line-height: 1.5;
+								margin-right: 10px;
+							}
+							.time{
+								text-align: right;
+								font-weight: 100;
+								font-size: 12px;
+								font-style: italic;
+								color: @whiteColor6;
+							}
+						}
+					}
+				}
 			}
 			.timeline-article .content-left-container,
 			.timeline-article .content-right-container {
@@ -61,22 +93,7 @@
 				background-color: @backgroundColor6;
 				box-shadow: 0px 2px 12px 0 #000000;
 				overflow: hidden;
-				padding: 10px;
-				.title{
-					font-size: 20px;
-					font-weight: 100;
-				}
-				.desc{
-					font-weight: 100;
-					margin-top: 10px;
-					font-size: 16px;
-				}
-				.time{
-					text-align: right;
-					font-weight: 100;
-					font-size: 16px;
-					margin-top: 10px;
-				}
+				padding: 20px 10px;
 			}
 			.timeline-article p {
 				padding: 0;
@@ -184,21 +201,6 @@
 				.timeline-article .content-right {
 					padding: 10px 25px;
 					min-height: 65px;
-					.title{
-						font-size: 20px;
-						font-weight: 100;
-					}
-					.desc{
-						font-weight: 100;
-						margin-top: 10px;
-						font-size: 12px;
-					}
-					.time{
-						text-align: right;
-						font-weight: 100;
-						font-size: 12px;
-						margin-top: 10px;
-					}
 				}
 				.timeline-article .content-left:before {
 					content: '';

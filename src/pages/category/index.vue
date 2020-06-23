@@ -74,7 +74,8 @@ export default {
       icon: {
         test: "icontest",
         Flutter: "iconFlutter",
-        Git: "icongit"
+        Git: "icongit",
+        LeetCode: "iconcode"
       }
     };
   },

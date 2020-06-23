@@ -3,25 +3,6 @@
     <my-header></my-header>
     <div class="content">
       <div class="left">
-        <!-- <div class="timeline-content">
-          <el-timeline>
-            <el-timeline-item
-              v-for="(item, index) in blogs"
-              :key="index"
-              :icon="item.icon"
-              type="primary"
-              color="#ffffff"
-              size="large"
-              :timestamp="timeTransfrom(item.pubTime)"
-              placement="top"
-            >
-              <el-card>
-                <h4 style="cursor: pointer" @click="goDetail(item._id)">{{item.title}}</h4>
-                <p>{{item.desc}}</p>
-              </el-card>
-            </el-timeline-item>
-          </el-timeline>
-        </div>-->
         <section id="conference-timeline">
           <div class="conference-center-line"></div>
           <div class="conference-timeline-content" v-for="(item, index) in blogs" :key="index">
@@ -31,9 +12,19 @@
                 class="animated"
               >
                 <div :class="index%2===0?'content-right':'content-left'">
-                  <div class="title">{{item.title}}</div>
-                  <div class="desc">{{item.desc}}</div>
-                  <div class="time">{{timeTransfrom(item.pubTime)}}</div>
+                  <div class="timeline-container">
+                    <div class="card-left">
+                      <!-- <div class="index">{{index+1}}</div> -->
+                    </div>
+                    <div class="card-right">
+                      <div class="title">{{item.title}}</div>
+                      <div class="desc">{{item.desc}}</div>
+                      <div class="date">
+                        <i class="iconfont iconshizhong"></i>
+                        <div class="time">{{timeTransfrom(item.pubTime)}}</div>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
               <div class="meta-icon animated zoomIn">

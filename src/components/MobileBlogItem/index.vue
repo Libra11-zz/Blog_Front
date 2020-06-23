@@ -1,7 +1,7 @@
 <template>
   <div @click="go(id)" class="mobile-blog-item">
     <div class="item-left">
-      <img :src="source" alt width="80px" height="80px" />
+      <img :src="source" alt class="left-image" />
     </div>
     <div class="item-right">
       <div class="title">{{title}}</div>
