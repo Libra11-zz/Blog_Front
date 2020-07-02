@@ -11,10 +11,10 @@
         <router-link to="/blog" class="link">博客</router-link>
       </li>
       <li class="menu-item">
-        <router-link to="/label/test" class="link">标签</router-link>
+        <router-link to="/label/js" class="link">标签</router-link>
       </li>
       <li class="menu-item">
-        <router-link to="/category/test" class="link">分类</router-link>
+        <router-link to="/category/JS" class="link">分类</router-link>
       </li>
       <li class="menu-item">
         <router-link to="/timeline" class="link">时间线</router-link>
@@ -73,13 +73,13 @@
             </router-link>
           </li>
           <li class="nav-menu-item" @click="handleMobileNav">
-            <router-link to="/label/test">
+            <router-link to="/label/js">
               <i class="iconfont iconlabel"></i>
               <i class="white">标签</i>
             </router-link>
           </li>
           <li class="nav-menu-item" @click="handleMobileNav">
-            <router-link to="/category/test">
+            <router-link to="/category/JS">
               <i class="iconfont iconfenlei-"></i>
               <i class="white">分类</i>
             </router-link>

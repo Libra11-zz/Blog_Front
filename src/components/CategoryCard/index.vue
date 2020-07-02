@@ -21,10 +21,12 @@ export default {
     return {
       categorys: [],
       icon: {
-        test: "icontest",
         Flutter: "iconFlutter",
         Git: "icongit",
-        LeetCode: "iconcode"
+        LeetCode: "iconcode",
+        面试: "icontanhuamianshi",
+        JS: "iconjavascript",
+        数据库: "iconshujuku"
       }
     };
   },
