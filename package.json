@@ -11,7 +11,7 @@
     "axios": "^0.19.2",
     "core-js": "^3.6.4",
     "element-ui": "^2.13.2",
-    "highlight.js": "^10.0.3",
+    "highlight.js": "^10.4.1",
     "less": "^3.11.1",
     "less-loader": "^6.1.0",
     "markdown-it": "^10.0.0",
